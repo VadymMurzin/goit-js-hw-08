@@ -4,10 +4,10 @@ const inputData = document.querySelector('.feedback-form');
 
 const saveEmailMessage = throttle(function (event) {
   event.preventDefault();
-  const {
-    elements: { email, message },
-  } = event.currentTarget;
-  const formData = { email: email.value, message: message.value };
+  const emailInput = document.querySelector('input[name="email"]');
+  const messageInput = document.querySelector('textarea[name="message"]');
+  const formData = { email: emailInput.value, message: messageInput.value };
+
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
   //   console.log(email.value, message.value);
 }, 500);
